@@ -41,15 +41,6 @@ public class PrefixMaker : IMethodMaker
         ParameterInfo[] originalParams = originalMethod.GetParameters();
         int paramCount = originalParams.Length;
 
-        // 验证目标方法
-        if (targetMethod == null)
-            throw new ArgumentNullException(nameof(targetMethod));
-
-        ParameterInfo[] targetParams = targetMethod.GetParameters();
-        if (targetParams.Length != paramCount)
-            throw new ArgumentException(
-                $"目标方法参数数量 ({targetParams.Length}) 与原方法 ({paramCount}) 不匹配");
-
         // 创建局部变量数组
         VariableDefinition[] paramVars = new VariableDefinition[paramCount];
         for (int i = 0; i < paramCount; i++)

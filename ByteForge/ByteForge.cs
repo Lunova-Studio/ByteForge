@@ -1,11 +1,11 @@
 ﻿using ByteForge.Attributes;
 using ByteForge.Factories;
-using ByteForge.Makers;
 using ByteForge.Interfaces;
-using System.Reflection;
+using ByteForge.Makers;
 using Mono.Cecil.Cil;
-using MonoMod.Utils;
 using MonoMod.Core;
+using MonoMod.Utils;
+using System.Reflection;
 
 namespace ByteForge;
 
@@ -42,7 +42,13 @@ public class ByteForge
 
         foreach (IPatchFactory factory in PatchFactories)
         {
-            patches.AddRange(factory.SearchAll(mixinType));
+            IEnumerable<IPatch> factoryPatches = factory.SearchAll(mixinType);
+            if (factoryPatches.Any(x => !factory.IsValid(x)))
+            {
+                throw new InvalidOperationException($"Invalid patch found in {mixinType.Name} using factory {factory.GetType().Name}");
+            }
+
+            patches.AddRange(factoryPatches);
         }
 
         Dictionary<AtAttribute, DynamicMethodDefinition> dynamics = new();
@@ -50,7 +56,7 @@ public class ByteForge
         {
             AtAttribute? at = patch.GetMethod().GetCustomAttribute<AtAttribute>();
             if (at == null || dynamics.ContainsKey(at)) continue;
-            dynamics[at] = new DynamicMethodDefinition(mixinAttribute.Target.GetMethod(at.Name, at.Parameters));
+            dynamics[at] = new DynamicMethodDefinition(IPatch.GetTarget(patch));
         }
         foreach (AtAttribute atAttribute in dynamics.Keys)
         {
