@@ -15,6 +15,7 @@ namespace ByteForge.Test
             Console.WriteLine(new Class1().getField());
             Console.WriteLine(new Class1().getField2(22));
             Console.WriteLine(Class1.ret(2));
+            Console.WriteLine(Class1.add1(2, 2));
             Class1.WriteLine("hello");
             byteForge.LoadMixin<Class2>();
             Class1.test();
@@ -22,6 +23,7 @@ namespace ByteForge.Test
             Console.WriteLine(new Class1().getField());
             Console.WriteLine(new Class1().getField2(22));
             Console.WriteLine(Class1.ret(2));
+            Console.WriteLine(Class1.add1(2, 2));
             Class1.WriteLine("hello");
         }
     }

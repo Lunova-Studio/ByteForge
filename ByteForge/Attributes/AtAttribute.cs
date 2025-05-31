@@ -5,15 +5,15 @@ namespace ByteForge.Attributes;
 [AttributeUsage(AttributeTargets.Method)]
 public class AtAttribute : Attribute, IEquatable<AtAttribute?>
 {
-    public string Name { get; set; }
-    public Type? ReturnType { get; set; }
-    public Type[] Parameters { get; set; }
+    public string Name { get; }
+    public Type? ReturnType { get; }
+    public Type[] Parameters { get; }
 
-    public AtAttribute(string name, Type? returnType, params Type[] palarmters)
+    public AtAttribute(string name, Type? returnType, params Type[] parameters)
     {
         Name = name;
         ReturnType = returnType;
-        Parameters = palarmters;
+        Parameters = parameters;
     }
 
     public override bool Equals(object? obj)

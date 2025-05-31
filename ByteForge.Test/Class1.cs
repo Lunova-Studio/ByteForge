@@ -36,6 +36,17 @@ namespace ByteForge.Test
         }
 
         public static void WriteLine(string s) { Console.WriteLine(s); }
+
+        public static int add0(int i, int j)
+        {
+            return i + j;
+        }
+
+        public static int add1(int i, int j)
+        {
+            int result = add0(i, j);
+            return add0(12, result);
+        }
     }
 
     [Mixin(typeof(Class1))]
@@ -98,6 +109,13 @@ namespace ByteForge.Test
         public static void WriteLine2(ref string s)
         {
             s += " prefixed2!";
+        }
+
+        [At("add1", typeof(int), typeof(int), typeof(int))]
+        [ModifyArgument(0, 1, typeof(Class1), "add0", typeof(int), typeof(int), typeof(int))]
+        public static void add1Modify(ref int i)
+        {
+            i = 234;
         }
     }
 

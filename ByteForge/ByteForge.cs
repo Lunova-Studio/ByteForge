@@ -23,6 +23,8 @@ public class ByteForge
         PatchFactories.Add(new PrefixFactory());
         MethodMakers.Add(new PostfixMaker());
         PatchFactories.Add(new PostfixFactory());
+        MethodMakers.Add(new ModifyArgumentMaker());
+        PatchFactories.Add(new ModifyArgumentFactory());
     }
 
     public void LoadMixin<T>()
