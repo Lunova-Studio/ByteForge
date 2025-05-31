@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ByteForge.Core.Attributes;
+
+[AttributeUsage(AttributeTargets.Class)]
+public class MixinAttribute : Attribute
+{
+    public Type Target { get; }
+    public MixinAttribute(Type target)
+    {
+        Target = target;
+    }
+}
