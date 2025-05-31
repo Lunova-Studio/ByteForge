@@ -1,6 +1,7 @@
 ﻿using ByteForge.Attributes;
 using ByteForge.Interfaces;
 using ByteForge.Patches;
+using ByteForge.Utils;
 using System.Reflection;
 
 namespace ByteForge.Factories;
@@ -9,7 +10,7 @@ public class PrefixFactory : IPatchFactory
 {
     public bool IsValid(IPatch patch)
     {
-        MethodInfo target = IPatch.GetTarget(patch);
+        MethodInfo target = IPatchUtils.GetTarget(patch);
         MethodInfo method = patch.GetMethod();
 
         return method.ReturnType == typeof(void) &&

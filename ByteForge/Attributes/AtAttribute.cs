@@ -16,7 +16,7 @@ public class AtAttribute : Attribute, IEquatable<AtAttribute?>
         Parameters = palarmters;
     }
 
-    public override bool Equals([NotNullWhen(true)] object? obj)
+    public override bool Equals(object? obj)
     {
         if (obj is null) return false;
         if (obj.GetType() != GetType()) return false;

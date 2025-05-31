@@ -2,6 +2,7 @@
 using ByteForge.Factories;
 using ByteForge.Interfaces;
 using ByteForge.Makers;
+using ByteForge.Utils;
 using Mono.Cecil.Cil;
 using MonoMod.Core;
 using MonoMod.Utils;
@@ -56,7 +57,7 @@ public class ByteForge
         {
             AtAttribute? at = patch.GetMethod().GetCustomAttribute<AtAttribute>();
             if (at == null || dynamics.ContainsKey(at)) continue;
-            dynamics[at] = new DynamicMethodDefinition(IPatch.GetTarget(patch));
+            dynamics[at] = new DynamicMethodDefinition(IPatchUtils.GetTarget(patch));
         }
         foreach (AtAttribute atAttribute in dynamics.Keys)
         {
