@@ -5,7 +5,7 @@ VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteForge", "ByteForge\ByteForge.csproj", "{95BA7D60-C43A-4712-B3F8-E458DC19D99A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteForge.Test", "ByteForge.Test\ByteForge.Test.csproj", "{AE0B42C3-C6FE-4C01-BAF5-DA20F225BD87}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteForge.Test", "ByteForge.Test\ByteForge.Test.csproj", "{EB7DAF4F-FA3F-4145-859B-5F41A375CE52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +17,15 @@ Global
 		{95BA7D60-C43A-4712-B3F8-E458DC19D99A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95BA7D60-C43A-4712-B3F8-E458DC19D99A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95BA7D60-C43A-4712-B3F8-E458DC19D99A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AE0B42C3-C6FE-4C01-BAF5-DA20F225BD87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AE0B42C3-C6FE-4C01-BAF5-DA20F225BD87}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AE0B42C3-C6FE-4C01-BAF5-DA20F225BD87}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AE0B42C3-C6FE-4C01-BAF5-DA20F225BD87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB7DAF4F-FA3F-4145-859B-5F41A375CE52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB7DAF4F-FA3F-4145-859B-5F41A375CE52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB7DAF4F-FA3F-4145-859B-5F41A375CE52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB7DAF4F-FA3F-4145-859B-5F41A375CE52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4DE6D2E2-F9E5-4544-BD73-CCCC24A5F8B4}
 	EndGlobalSection
 EndGlobal

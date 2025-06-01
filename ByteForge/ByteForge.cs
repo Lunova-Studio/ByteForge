@@ -78,11 +78,11 @@ public class ByteForge
 
             MethodInfo @new = dynamicMethod.Generate();
 
-            foreach (Instruction instruction in dynamicMethod.Definition.Body.Instructions)
-            {
-                Console.WriteLine(instruction);
-            }
-            Console.WriteLine("           ");
+            //foreach (Instruction instruction in dynamicMethod.Definition.Body.Instructions)
+            //{
+            //    Console.WriteLine(instruction);
+            //}
+            //Console.WriteLine("           ");
 
             DetourFactory.Current.CreateDetour(mixinAttribute.Target.GetMethod(atAttribute.Name, atAttribute.Parameters), @new);
         }
