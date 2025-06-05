@@ -1,4 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using ByteForge.Exceptions;
+using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 
 namespace ByteForge.Attributes;
 
@@ -14,6 +16,15 @@ public class AtAttribute : Attribute, IEquatable<AtAttribute?>
         Name = name;
         ReturnType = returnType;
         Parameters = parameters;
+    }
+
+    public virtual MethodInfo GetTarget(Type mixinType)
+    {
+        MixinAttribute mixinAttribute = mixinType.GetCustomAttribute<MixinAttribute>()!;
+        MethodInfo? target = mixinAttribute.Target.GetMethod(Name, Parameters);
+        if (target == null) throw new TargetMethodNotFoundException(null, this, mixinAttribute.Target);
+
+        return target;
     }
 
     public override bool Equals(object? obj)

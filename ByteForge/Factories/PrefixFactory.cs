@@ -15,7 +15,7 @@ public class PrefixFactory : IPatchFactory
 
         return method.ReturnType == typeof(void) &&
                target.GetParameters().Length == method.GetParameters().Length &&
-               target.GetParameters().Select(x => x.ParameterType).Select(x => x.MakeByRefType()).SequenceEqual(method.GetParameters().Select(x => x.ParameterType)) &&
+               target.GetParameters().Select(x => x.ParameterType).Select(x => x.MakeByRefType().Name).SequenceEqual(method.GetParameters().Select(x => x.ParameterType.Name)) &&
                target.IsStatic == method.IsStatic;
     }
 
